@@ -3,7 +3,8 @@ from typing import List
 
 class RemoveDuplicatesFromList:
     def removeduplicates(nums: List[int]) -> int:
-        return len(list(set(nums)))
+        nums[:] = list(set(nums))
+        return len(nums)
 
 
 if __name__ == '__main__':
