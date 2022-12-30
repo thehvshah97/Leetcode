@@ -15,4 +15,4 @@ class ValidParentheses:
             return True
 
 if __name__ == '__main__':
-    print(ValidParentheses.validparentheses("("))
+    print(ValidParentheses.validparentheses(""))

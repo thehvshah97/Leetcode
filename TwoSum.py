@@ -12,4 +12,4 @@ class TwoSum:
 
 
 if __name__ == '__main__':
-    TwoSum.twosum([3, 3], 6)
+    print(TwoSum.twosum([3, 3], 6))
