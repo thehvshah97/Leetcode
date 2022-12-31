@@ -18,13 +18,24 @@ class FrogJump:
                 left = energy[i-1] + abs(val[i] - val[i-1])
                 if i > 1:
                     right = energy[i-2] + abs(val[i] - val[i-2])
-                    if left < right:
-                        energy[i] = left
-                    else:
-                        energy[i] = right
+                    energy[i] = min(left, right)
                 else:
                     energy[i] = left
         return energy[len(val) - 1]
+
+    def dynamicProgrammingOptimized(self, val: list, index: int) -> int:
+        prev = 0
+        prev2 = 0
+        for i in range(1, len(val)):
+            left = prev + abs(val[i] - val[i-1])
+            if i > 1:
+                right = prev2 + abs(val[i] - val[i-2])
+                prev2 = prev
+                prev = min(left, right)
+            else:
+                prev2 = prev
+                prev = left
+        return prev
 
 
 if __name__ == '__main__':
@@ -32,3 +43,5 @@ if __name__ == '__main__':
     val = [30, 10, 60, 10, 60, 50]
     print("Minimum Energy:", frogJump.recursion(val, len(val)-1))
     print("Minimum Energy dynamic Programming:", frogJump.dynamicProgramming(val, len(val) - 1))
+    print("Minimum Energy dynamic Programming space optimized:", frogJump.dynamicProgrammingOptimized(val, len(val) - 1))
+
