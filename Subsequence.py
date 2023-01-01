@@ -1,15 +1,19 @@
 class Subsequence:
-    def recursion(self, index: int, inputArr: list, subSequence: list, n: int):
+    def recursion(self, index: int, inputArr: list, subSequence: list, result: list, n: int):
         if index >= n:
-            print(subSequence)
+            res = subSequence.copy()
+            result.append(res)
             return
         subSequence.append(inputArr[index])
-        self.recursion(index + 1, inputArr, subSequence, n)
+        self.recursion(index + 1, inputArr, subSequence, result, n)
         subSequence.remove(inputArr[index])
-        self.recursion(index + 1, inputArr, subSequence, n)
+        self.recursion(index + 1, inputArr, subSequence, result, n)
 
 
 if __name__ == '__main__':
     subSequence = Subsequence()
-    subSequence.recursion(0, [3, 1, 2], [], 3)
+    result = []
+    sequence = []
+    subSequence.recursion(0, [3, 1, 2], sequence, result, 3)
+    print(result)
 
