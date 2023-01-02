@@ -10,10 +10,10 @@ class LongestCommonPrefix:
             if flag:
                 break
             else:
-                result=result[0:len(result)-1]
+                result = result[0:len(result)-1]
         return result
 
 
 if __name__ == '__main__':
-    print(LongestCommonPrefix.longestcommonprefix(["car","cat","apple"]))
+    print(LongestCommonPrefix.longestcommonprefix(["car", "cat", "apple"]))
 

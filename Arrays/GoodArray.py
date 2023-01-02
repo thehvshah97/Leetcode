@@ -25,7 +25,6 @@ class GoodArray:
 
 
 if __name__ == '__main__':
-    goodarray = GoodArray()
-    print(goodarray.goodArray(26, [[1, 2, 1009], [3, 3, 5]]))
-
+    goodArray = GoodArray()
+    print(goodArray.goodArray(26, [[1, 2, 1009], [3, 3, 5]]))
 
