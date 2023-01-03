@@ -20,9 +20,6 @@ class HouseRobber2:
 
 if __name__ == '__main__':
     houseRobber2 = HouseRobber2()
-    inputArr = [1, 2, 3, 1]
-    values = [-1] * len(inputArr)
-    #print("Recursion(TLE):", houseRobber.recursion(len(inputArr) - 1, inputArr))
-    #print("Memoization(TLE):", houseRobber.dynamicProgrammingMemoization(len(inputArr) - 1, inputArr, values))
-    print("Tabulation:", houseRobber2.dynamicProgrammingCalling(inputArr))
-    #print("Tabulation Space Optimized", houseRobber.dynamicProgrammingTabulationSpaceOptimized(inputArr))
+    inputArr = [2, 3, 2]
+    print("Tabulation Space Optimized:", houseRobber2.dynamicProgrammingCalling(inputArr))
+
