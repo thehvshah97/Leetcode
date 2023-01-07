@@ -45,10 +45,9 @@ class MergeOverlappingIntervals:
 
 if __name__ == '__main__':
     mergeOverlapping = MergeOverlappingIntervals()
-    #print(mergeOverlapping.mergeBruteForce([[1, 3], [0, 2], [2, 3], [4, 6], [4, 5],[5, 5], [0, 2], [3, 3]]))
-    #print(mergeOverlapping.mergeBruteForce([[1, 3], [2, 6], [8, 10], [15, 18]]))
-    #print(mergeOverlapping.mergeBruteForce([[1, 4], [0, 2], [3, 5]]))
-    print(mergeOverlapping.mergeOptimal([[1, 3], [0, 2], [2, 3], [4, 6], [4, 5],[5, 5], [0, 2], [3, 3]]))
+    print(mergeOverlapping.mergeBruteForce([[1, 3], [0, 2], [2, 3], [4, 6], [4, 5], [5, 5], [0, 2], [3, 3]]))
+    print(mergeOverlapping.mergeBruteForce([[1, 3], [2, 6], [8, 10], [15, 18]]))
+    print(mergeOverlapping.mergeBruteForce([[1, 4], [0, 2], [3, 5]]))
+    print(mergeOverlapping.mergeOptimal([[1, 3], [0, 2], [2, 3], [4, 6], [4, 5], [5, 5], [0, 2], [3, 3]]))
     print(mergeOverlapping.mergeOptimal([[1, 3], [2, 6], [8, 10], [15, 18]]))
     print(mergeOverlapping.mergeOptimal([[1, 4], [0, 2], [3, 5]]))
-
