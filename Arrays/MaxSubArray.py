@@ -6,7 +6,7 @@ class MaxSubArray:
             localSum += i
             if maxSum < localSum:
                 maxSum = localSum
-            if localSum <=0:
+            if localSum <= 0:
                 localSum = 0
         return maxSum
 
