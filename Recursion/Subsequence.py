@@ -5,9 +5,9 @@ class Subsequence:
             result.append(res)
             return
         subSequence.append(inputArr[index])
-        self.recursion(index + 2, inputArr, subSequence, result, n)
+        self.recursion(index + 1, inputArr, subSequence, result, n)
         subSequence.remove(inputArr[index])
-        self.recursion(index + 2, inputArr, subSequence, result, n)
+        self.recursion(index + 1, inputArr, subSequence, result, n)
 
 if __name__ == '__main__':
     subsequence = Subsequence()

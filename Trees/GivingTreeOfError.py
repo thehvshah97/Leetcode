@@ -1,4 +1,3 @@
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 class GivingTreeOfError:
     def parseInput(self):
         adjList = {}
@@ -42,6 +41,7 @@ class GivingTreeOfError:
                 result = self.dfs(n, adjList, result)
         result += ")"
         return result
+
 
 if __name__ == '__main__':
     nodes = []
