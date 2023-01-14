@@ -8,6 +8,7 @@ class MajorityNumber:
         return nums[int(len(nums) / 2)]
 
     # Calculate count of the current number selected as candidate and if count reaches 0 replace the candidate with a new Number
+    # Boyer Moore’s Voting Algorithm
     def majorityElementOptimized(self, nums: List[int]) -> int:
         candidate = nums[0]
         count = 0
