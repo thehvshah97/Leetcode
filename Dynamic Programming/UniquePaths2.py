@@ -42,12 +42,14 @@ class UniquePaths2:
         tabulation = np.zeros((m, n), int).tolist()
         for i in range(m):
             for j in range(n):
-                if i == 0 or j == 0:
-                    tabulation[i][j] = 1
-
-                elif obstacleGrid[i][j] == 1:
+                if obstacleGrid[i][j] == 1:
                     tabulation[i][j] = 0
-
+                elif i == 0 and j == 0:
+                    tabulation[i][j] = 1
+                elif i == 0:
+                    tabulation[i][j] = tabulation[i][j - 1]
+                elif j == 0:
+                    tabulation[i][j] = tabulation[i - 1][j]
                 else:
                     tabulation[i][j] = tabulation[i - 1][j] + tabulation[i][j - 1]
         return tabulation[-1][-1]
@@ -58,4 +60,4 @@ if __name__ == '__main__':
     print(uniquePaths.uniquePathsRecursion(2, 2, [[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
     memoization = [[-1] * 3] * 3
     print(uniquePaths.uniquePathsMemoization(2, 2, memoization, [[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
-    print(uniquePaths.uniquePathsTabulation(3, 3, [[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+    print(uniquePaths.uniquePathsTabulation(1, 2, [[1, 0]]))
