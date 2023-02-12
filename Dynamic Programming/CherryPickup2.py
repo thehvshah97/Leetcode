@@ -17,8 +17,7 @@ class NinjaTraining:
                 maxPoints = max(maxPoints, points[day][task] + self.trainingRecursion(points, day - 1, task))
         return maxPoints
 
-    def trainingDynamicProgrammingMemoization(self, points: List[List[int]], day: int, lastTask: int,
-                                              memoization: List[List[int]]) -> int:
+    def trainingDynamicProgrammingMemoization(self, points: List[List[int]], day: int, lastTask: int, memoization: List[List[int]]) -> int:
         if day == 0:
             maxPoints = 0
             for task in range(len(points[0])):
@@ -33,8 +32,7 @@ class NinjaTraining:
         for task in range(len(points[0])):
             if task != lastTask:
                 maxPoints = max(maxPoints,
-                                points[day][task] + self.trainingDynamicProgrammingMemoization(points, day - 1, task,
-                                                                                               memoization))
+                                points[day][task] + self.trainingDynamicProgrammingMemoization(points, day - 1, task, memoization))
         memoization[day][lastTask] = maxPoints
         return memoization[day][lastTask]
 
