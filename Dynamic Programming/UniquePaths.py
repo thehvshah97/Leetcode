@@ -6,14 +6,11 @@ class UniquePaths:
     def uniquePathsRecursion(self, m: int, n: int) -> int:
         if m == 0 or n == 0:
             return 1
-
-        paths = 0
-        paths += self.uniquePathsRecursion(m - 1, n) + self.uniquePathsRecursion(m, n - 1)
-        return paths
+        return self.uniquePathsRecursion(m - 1, n) + self.uniquePathsRecursion(m, n - 1)
 
     def uniquePathsRecursionCalling(self, m: int, n: int) -> int:
         return self.uniquePathsRecursion(m - 1, n - 1)
-    
+
     def uniquePathsMemoization(self, m: int, n: int, memoization: List[List[int]]) -> int:
         if m == 0 or n == 0:
             memoization[m][n] = 1
