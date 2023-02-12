@@ -15,17 +15,17 @@ class UniquePaths:
         if m == 0 or n == 0:
             memoization[m][n] = 1
             return memoization[m][n]
-
-        if memoization[m][n] != 0:
+        elif memoization[m][n] != 0:
             return memoization[m][n]
 
         paths = 0
-        for i in range(1, m):
-            for j in range(1, n):
-                paths += self.uniquePathsMemoization(i - 1, j, memoization) + self.uniquePathsMemoization(i, j - 1,
-                                                                                                          memoization)
+        paths += self.uniquePathsMemoization(m - 1, n, memoization) + self.uniquePathsMemoization(m, n - 1, memoization)
         memoization[m][n] = paths
         return memoization[m][n]
+
+    def uniquePathsMemoizationCalling(self, m: int, n: int) -> int:
+        memoization = np.zeros((m, n), int).tolist()
+        return uniquePaths.uniquePathsMemoization(m - 1, n - 1, memoization)
 
     def uniquePathsTabulation(self, m: int, n: int) -> int:
         tabulation = np.zeros((m, n), int).tolist()
@@ -41,6 +41,5 @@ class UniquePaths:
 if __name__ == '__main__':
     uniquePaths = UniquePaths()
     print(uniquePaths.uniquePathsRecursionCalling(2, 3))
-    memoization = np.zeros((3, 4), int).tolist()
-    print(uniquePaths.uniquePathsMemoization(2, 3, memoization))
+    print(uniquePaths.uniquePathsMemoizationCalling(2, 3))
     print(uniquePaths.uniquePathsTabulation(2, 3))
