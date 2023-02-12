@@ -8,22 +8,25 @@ class UniquePaths:
             return 1
 
         paths = 0
-        for i in range(1, m):
-            for j in range(1, n):
-                paths += self.uniquePathsRecursion(i-1, j) + self.uniquePathsRecursion(i, j-1)
+        paths += self.uniquePathsRecursion(m - 1, n) + self.uniquePathsRecursion(m, n - 1)
         return paths
 
+    def uniquePathsRecursionCalling(self, m: int, n: int) -> int:
+        return self.uniquePathsRecursion(m - 1, n - 1)
+    
     def uniquePathsMemoization(self, m: int, n: int, memoization: List[List[int]]) -> int:
         if m == 0 or n == 0:
             memoization[m][n] = 1
             return memoization[m][n]
 
-        if memoization[m][n] != -1:
+        if memoization[m][n] != 0:
             return memoization[m][n]
+
         paths = 0
         for i in range(1, m):
             for j in range(1, n):
-                paths += self.uniquePathsRecursion(i-1, j) + self.uniquePathsRecursion(i, j-1)
+                paths += self.uniquePathsMemoization(i - 1, j, memoization) + self.uniquePathsMemoization(i, j - 1,
+                                                                                                          memoization)
         memoization[m][n] = paths
         return memoization[m][n]
 
@@ -40,7 +43,7 @@ class UniquePaths:
 
 if __name__ == '__main__':
     uniquePaths = UniquePaths()
-    print(uniquePaths.uniquePathsRecursion(2, 3))
-    memoization = [[-1] * (3 + 1)] * (2 + 1)
+    print(uniquePaths.uniquePathsRecursionCalling(2, 3))
+    memoization = np.zeros((3, 4), int).tolist()
     print(uniquePaths.uniquePathsMemoization(2, 3, memoization))
     print(uniquePaths.uniquePathsTabulation(2, 3))
