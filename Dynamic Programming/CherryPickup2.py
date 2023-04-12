@@ -37,6 +37,8 @@ class CherryPickup2:
                 return grid[level][robot1]
             else:
                 return grid[level][robot1] + grid[level][robot2]
+        if self.dp[level][robot1][robot2] != 0:
+            return self.dp[level][robot1][robot2]
         for i in range(-1, 2):
             for j in range(-1, 2):
                 if robot1 == robot2:
