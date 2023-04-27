@@ -1,11 +1,8 @@
 from typing import List
-
 import numpy as np
-
 
 class CherryPickup2:
     dp = 0
-
     def cherryPickupRecursion(self, grid: List[List[int]], level: int, robot1: int, robot2: int) -> int:
         # Base Case - Last level
         if robot1 < 0 or robot1 >= len(grid[0]) or robot2 < 0 or robot2 >= len(grid[0]):
