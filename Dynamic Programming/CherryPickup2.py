@@ -1,8 +1,10 @@
 from typing import List
 import numpy as np
 
+
 class CherryPickup2:
     dp = 0
+
     def cherryPickupRecursion(self, grid: List[List[int]], level: int, robot1: int, robot2: int) -> int:
         # Base Case - Last level
         if robot1 < 0 or robot1 >= len(grid[0]) or robot2 < 0 or robot2 >= len(grid[0]):
@@ -12,19 +14,19 @@ class CherryPickup2:
                 return grid[level][robot1]
             else:
                 return grid[level][robot1] + grid[level][robot2]
-        maxValue = 0
+        max_value = 0
         counter = 0
         for i in range(-1, 2):
             for j in range(-1, 2):
                 if robot1 == robot2:
-                    maxValue = max(maxValue,
-                                   self.cherryPickupRecursion(grid, level + 1, robot1 + i, robot2 + j) + grid[level][
-                                       robot1])
+                    max_value = max(max_value,
+                                    self.cherryPickupRecursion(grid, level + 1, robot1 + i, robot2 + j) + grid[level][
+                                        robot1])
                 else:
-                    maxValue = max(maxValue,
-                                   self.cherryPickupRecursion(grid, level + 1, robot1 + i, robot2 + j) + grid[level][
-                                       robot1] + grid[level][robot2])
-        return maxValue
+                    max_value = max(max_value,
+                                    self.cherryPickupRecursion(grid, level + 1, robot1 + i, robot2 + j) + grid[level][
+                                        robot1] + grid[level][robot2])
+        return max_value
 
     def cherryPickupMemoization(self, grid: List[List[int]], level: int, robot1: int, robot2: int) -> int:
         if robot1 < 0 or robot1 >= len(grid[0]) or robot2 < 0 or robot2 >= len(grid[0]):
