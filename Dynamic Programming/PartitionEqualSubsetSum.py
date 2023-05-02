@@ -15,7 +15,7 @@ class PartitionEqualSubsetSum:
         if sum(arr) % 2 != 0:
             return False
         else:
-            return self.recursion(arr, 0, sum(arr)/2)
+            return self.recursion(arr, len(arr) - 1, sum(arr)/2)
     def dynamicProgrammingMemoization(self, arr: list, index: int, target: int, dp: list) -> bool:
         if arr[index] == target:
             return True
@@ -35,11 +35,11 @@ class PartitionEqualSubsetSum:
             return False
         else:
             dp = [False] * len(arr)
-            return self.dynamicProgrammingMemoization(arr, 0, sum(arr) / 2, dp)
+            return self.dynamicProgrammingMemoization(arr, len(arr) - 1, sum(arr) / 2, dp)
 
 
 if __name__ == '__main__':
     partitionEqualSubsetSum = PartitionEqualSubsetSum()
-    print(partitionEqualSubsetSum.recursionCalling([3, 3]))
-    print(partitionEqualSubsetSum.dynamicProgrammingMemoizationCalling([1, 2, 3, 4]))
+    print(partitionEqualSubsetSum.recursionCalling([1, 5, 11, 5]))
+    print(partitionEqualSubsetSum.dynamicProgrammingMemoizationCalling([1, 5, 11, 5]))
 
