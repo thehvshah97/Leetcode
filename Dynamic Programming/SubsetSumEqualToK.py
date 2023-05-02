@@ -1,3 +1,5 @@
+import numpy as np
+
 class SubsetSumEqualToK:
     def recursion(self, arr: list, index: int, target: int) -> bool:
         if arr[index] == target:
@@ -33,9 +35,24 @@ class SubsetSumEqualToK:
         else:
             return False
 
+    def dynamicProgrammingTabulation(self, arr: list, target: int) -> bool:
+        dp = np.zeros([len(arr), target + 1], dtype=bool)
+        for i in range(len(arr)):
+            dp[i][0] = True
+        dp[0][arr[0]] = True
+        for i in range(1, len(arr)):
+            for j in range(1, target + 1):
+                notTaken = dp[i - 1][j]
+                taken = False
+                if arr[i] <= target:
+                    taken = dp[i - 1][j - arr[i]]
+                dp[i][j] = taken or notTaken
+        return dp[-1][target]
+
+
 
 if __name__ == '__main__':
     subsetSumEqualToK = SubsetSumEqualToK()
     print(subsetSumEqualToK.recursionCalling([1, 2, 3, 4], 4))
     print(subsetSumEqualToK.dynamicProgrammingMemoizationCalling([1, 2, 3, 4], 10))
-
+    print(subsetSumEqualToK.dynamicProgrammingTabulation([1, 2, 3, 4], 6))
