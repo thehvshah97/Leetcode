@@ -28,7 +28,7 @@ class MinimumSubsetSumSequence:
 
         minDiff = math.inf
         for i in range(1, sum(arr)):
-            if dp[-1][i] == True:
+            if dp[-1][i]:
                 minDiff = min(minDiff, abs((sum(arr) - i) - i))
         return minDiff
 
