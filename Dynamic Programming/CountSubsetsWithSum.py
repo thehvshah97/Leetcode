@@ -54,9 +54,9 @@ class CountSubsets:
                 dp[i][j] = pick + not_pick
         return dp[-1][-1]
 
+
 if __name__ == '__main__':
     countSubsets = CountSubsets()
     print(countSubsets.recursionCalling([1, 2, 3, 4], 5))
     print(countSubsets.dynamicProgrammingMemoization([1, 2, 3, 4], 4))
     print(countSubsets.dynamicProgrammingTabulation([1, 2, 3, 4], 5))
-
