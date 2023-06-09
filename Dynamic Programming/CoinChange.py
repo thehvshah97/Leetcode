@@ -44,7 +44,7 @@ class CoinChange:
     def dynamicProgrammingTabulation(self, coins: List[int], amount: int) -> int:
         dp = [[0 for _ in range(amount + 1)] for _ in range(len(coins))]
         for i in range(amount + 1):
-            if amount % coins[0] == 0:
+            if i % coins[0] == 0:
                 dp[0][i] = i // coins[0]
             else:
                 dp[0][i] = int(1e9)
@@ -65,4 +65,4 @@ if __name__ == '__main__':
     coinChange = CoinChange()
     print(coinChange.recursionCalling([1, 2, 5], 11))
     print(coinChange.dynamicProgrammingCalling([1, 2, 5], 11))
-    print(coinChange.dynamicProgrammingTabulation([1, 2, 5], 5))
+    print(coinChange.dynamicProgrammingTabulation([2, 5, 10, 1], 27))
