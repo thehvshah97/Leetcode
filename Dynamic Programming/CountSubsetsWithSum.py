@@ -3,10 +3,10 @@ import numpy as np
 
 class CountSubsets:
     def recursion(self, arr: list, index: int, target: int) -> int:
-        if target == 0:
-            return 1
         if index == 0:
-            if target == arr[index]:
+            if target == 0 and arr[index] == 0:
+                return 2
+            elif target == 0 or arr[index] == target:
                 return 1
             return 0
         not_pick = self.recursion(arr, index - 1, target)
@@ -19,10 +19,10 @@ class CountSubsets:
         return self.recursion(arr, len(arr) - 1, target)
 
     def dynamicProgramming(self, arr: list, index: int, target: int, dp: list) -> int:
-        if target == 0:
-            return 1
         if index == 0:
-            if target == arr[index]:
+            if target == 0 and arr[index] == 0:
+                return 2
+            elif target == 0 or arr[index] == target:
                 return 1
             return 0
         if dp[index][target] != -1:
