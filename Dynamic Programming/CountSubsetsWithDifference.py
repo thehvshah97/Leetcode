@@ -47,10 +47,10 @@ class CountSubsetsWithDifference:
         dp = [[0] * (target + 1) for _ in range(len(arr))]
         if arr[0] == 0:
             dp[0][0] = 2
-        elif arr[0] != 0 and arr[0] <= target:
-            dp[0][arr[0]] = 1
         else:
             dp[0][0] = 1
+        if arr[0] != 0 and arr[0] <= target:
+            dp[0][arr[0]] = 1
         for i in range(1, len(arr)):
             for j in range(target + 1):
                 not_pick = dp[i - 1][j]
