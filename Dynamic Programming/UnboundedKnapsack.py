@@ -33,16 +33,16 @@ class UnboundedKnapsack:
             return value
         if dp[index][weight] != 0:
             return dp[index][weight]
-        not_take = self.recursion(items, values, weight, index - 1, value, item)
+        not_take = self.dynamicProgrammingMemoization(items, values, weight, index - 1, value, item, dp)
         take = 0
         if items[index] <= weight:
-            take = self.recursion(items, values, weight - items[index], index, value + values[index], item - 1)
-        dp[weight][index] = max(take, not_take)
-        return dp[weight][index]
+            take = self.dynamicProgrammingMemoization(items, values, weight - items[index], index, value + values[index], item - 1, dp)
+        dp[index][weight] = max(take, not_take)
+        return dp[index][weight]
 
     def dynamicProgrammingMemoizationCalling(self, items: list, values: list, weight: int, item: int) -> int:
         dp = np.zeros([len(items), weight + 1], dtype=int)
-        return self.recursion(items, values, weight, len(items) - 1, 0, item)
+        return self.dynamicProgrammingMemoization(items, values, weight, len(items) - 1, 0, item, dp)
 
     def dynamicProgrammingTabulation(self, items: List[int], values: List[int], weight: int, item: int) -> int:
         dp = np.zeros([len(items), weight + 1], dtype=int)
