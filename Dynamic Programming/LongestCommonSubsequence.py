@@ -1,7 +1,5 @@
 from typing import List
 
-import numpy as np
-
 
 class LongestCommonSubsequence:
     def recursion(self, str1: str, str2: str, index1: int, index2: int) -> int:
