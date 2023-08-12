@@ -2,7 +2,7 @@ from typing import List
 import numpy as np
 
 class RotateMatrix:
-    def rotateMatrix(self, matrix: List[List[int]]) -> object:
+    def rotateMatrix(self, matrix: List[List[int]]) -> None:
         matrix.reverse()
         for i in range(len(matrix)):
             for j in range(i+1):
