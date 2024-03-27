@@ -1,3 +1,6 @@
+import unittest
+
+
 class Sort:
     def mergeSort(self, nums: list) -> None:
         if len(nums) > 1:
@@ -28,7 +31,5 @@ class Sort:
 
 
 if __name__ == '__main__':
-    sort = Sort()
-    nums = [2, 0, 2, 1, 1, 0]
-    sort.mergeSort(nums)
-    print("Merge Sort:", nums)
+    mergeSort = Sort()
+    print(mergeSort.mergeSort([2, 3, 4, 1, 5]))
