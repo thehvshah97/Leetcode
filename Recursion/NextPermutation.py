@@ -1,5 +1,5 @@
 class NextPermutation:
-    def findPermutations(self, index: int, inputArr: list, result: list) -> list:
+    def findPermutations(self, index: int, inputArr: list, result: list):
         if index == len(inputArr):
             res = inputArr.copy()
             result.append(res)
@@ -10,7 +10,7 @@ class NextPermutation:
             self.findPermutations(index + 1, inputArr, result)
             self.swap(i, index, inputArr)
 
-    def swap(self, i: int, j: int, inputArr: list) -> object:
+    def swap(self, i: int, j: int, inputArr: list):
         k = inputArr[i]
         inputArr[i] = inputArr[j]
         inputArr[j] = k

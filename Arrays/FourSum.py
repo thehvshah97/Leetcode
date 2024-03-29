@@ -15,7 +15,7 @@ class FourSum:
                                 result.append(temp)
         return result
 
-    def FourSumOptimized(self, nums: List[int], target: int) -> List[int]:
+    def FourSumOptimized(self, nums: List[int], target: int) -> list[list[int]]:
         nums.sort()
         result = []
         for i in range(len(nums)):
@@ -30,7 +30,7 @@ class FourSum:
                                 result.append(temp)
         return result
 
-    def FourSumOptimal(self, nums: List[int], target: int) -> List[int]:
+    def FourSumOptimal(self, nums: List[int], target: int) -> list[list[int]]:
         nums.sort()
         result = []
         for i in range(len(nums)):
