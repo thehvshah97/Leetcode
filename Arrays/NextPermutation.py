@@ -3,28 +3,19 @@ from typing import List
 
 class NextPermutation:
     def nextPermutation(self, nums: List[int]):
-        ind = -1
+        break_point = -1
         for i in range(len(nums) - 2, -1, -1):
             if nums[i] < nums[i + 1]:
-                ind = i
+                break_point = i
                 break
-
-        if ind == -1:
-            temp = [nums[i] for i in range(len(nums))]
-            ind = len(nums) - 1
-            for i in range(len(nums)):
-                nums[i] = temp[ind]
-                ind -= 1
-
+        if break_point < 0:
+            nums.reverse()
         else:
-            for i in range(len(nums) - 1, ind, -1):
-                if nums[i] > nums[ind]:
-                    x = nums[i]
-                    nums[i] = nums[ind]
-                    nums[ind] = x
+            for i in range(len(nums) - 1, break_point, -1):
+                if nums[i] > nums[break_point]:
+                    nums[i], nums[break_point] = nums[break_point], nums[i]
                     break
-            nums[ind + 1:] = nums[ind + 1:][::-1]
-        return nums
+            nums[break_point + 1:] = nums[break_point + 1:][::-1]
 
 
 if __name__ == '__main__':

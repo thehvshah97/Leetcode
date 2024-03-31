@@ -2,7 +2,7 @@ from typing import List
 
 
 class FourSum:
-    def FourSumNaive(self, nums: List[int], target: int) -> List[int]:
+    def FourSumNaive(self, nums: List[int], target: int) -> List[List[int]]:
         result = []
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
@@ -15,7 +15,7 @@ class FourSum:
                                 result.append(temp)
         return result
 
-    def FourSumOptimized(self, nums: List[int], target: int) -> list[list[int]]:
+    def FourSumOptimized(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
         result = []
         for i in range(len(nums)):
@@ -30,7 +30,7 @@ class FourSum:
                                 result.append(temp)
         return result
 
-    def FourSumOptimal(self, nums: List[int], target: int) -> list[list[int]]:
+    def FourSumOptimal(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
         result = []
         for i in range(len(nums)):
