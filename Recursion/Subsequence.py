@@ -9,6 +9,7 @@ class Subsequence:
         subSequence.remove(inputArr[index])
         self.recursion(index + 1, inputArr, subSequence, result, n)
 
+
 if __name__ == '__main__':
     subsequence = Subsequence()
     result = []
